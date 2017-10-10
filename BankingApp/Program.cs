@@ -16,8 +16,18 @@ namespace BankingApp
             Console.WriteLine($"Number trans {app.NumberOfTransactions} and balance is {app.Balance}");
             app.Deposit(30);
             Console.WriteLine($"Number trans {app.NumberOfTransactions} and balance is {app.Balance}");
-            Console.ReadKey();
+        
 
+
+            SavingsAccounts savApp = new SavingsAccounts("test", 0.01M);
+            savApp.Deposit(30);
+            savApp.Deposit(30);
+            Console.WriteLine($"Number trans {savApp.NumberOfTransactions} and balance is {savApp.Balance}");
+            savApp.AddInterest();
+            Console.WriteLine($"Number trans {savApp.NumberOfTransactions} and balance is {savApp.Balance}");
+            savApp.Withdraw(30);
+            Console.WriteLine($"Number trans {savApp.NumberOfTransactions} and balance is {savApp.Balance}");
+            Console.ReadKey();
         }
     }
 }
