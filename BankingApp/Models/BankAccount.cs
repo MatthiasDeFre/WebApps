@@ -1,23 +1,42 @@
-﻿    using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BankingApp.Models
+﻿namespace BankingApp.Models
 {
-    class BankAccount
+    internal class BankAccount
     {
-        private string _accountnumber;
-        private decimal _balance;
-        public 
+        #region Fields
 
-        public string AccountNumber { get; set; }
-        public decimal Balance
+        //private readonly string _accountnumber;
+        //   private decimal _balance;
+        //   public const decimal WithdrawCost = 0.25M;
+
+        #endregion
+
+        #region Constructors
+
+        public BankAccount(string accountnumber)
         {
-            get { return _balance; }
-            set { _balance = value; }
+            AccountNumber = accountnumber;
         }
 
-        public void Withdraw(decimal amount)
+        #endregion
+
+
+        #region Properties
+
+        public string AccountNumber { get; set; }
+
+        /*public decimal Balance
+        {
+            get { return _balance; }
+            private set { _balance = value; }
+        }*/
+        public decimal Balance { get; private set; }
+
+        #endregion
+
+
+        #region Methods
+
+        public virtual void Withdraw(decimal amount)
         {
             Balance -= amount;
         }
@@ -27,5 +46,6 @@ namespace BankingApp.Models
             Balance += amount;
         }
 
+        #endregion
     }
 }
