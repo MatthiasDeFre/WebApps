@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace BankingApp.Models
 {
-    enum TransactionType
+    public enum TransactionType
     {
         Withdraw,
         Deposit
