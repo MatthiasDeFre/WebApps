@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace BankingApp.Models
 {
-    class SavingsAccounts : BankAccount
+    public class SavingsAccounts : BankAccount
     {
         #region Fields
 

@@ -2,7 +2,7 @@
 
 namespace BankingApp.Models
 {
-    class Transaction
+    public class Transaction
     {
         #region Properties
         public decimal Amount { get; set; }

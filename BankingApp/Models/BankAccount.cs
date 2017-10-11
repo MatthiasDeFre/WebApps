@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace BankingApp.Models
 {
-    internal class BankAccount
+    public class BankAccount : IBankAccount
     {
         #region Fields
 
@@ -63,9 +62,18 @@ namespace BankingApp.Models
         {
             IList<Transaction> transList = new List<Transaction>();
 
+            if (from == null && !till.HasValue)
+            {
+                return _transactions;
+            }
+            if (from == null)
+                from = DateTime.MinValue;
+            if (till == null)
+                till = DateTime.MaxValue;
             foreach (Transaction transaction in _transactions)
             {
-                if(transaction.DateOfTrans >= from && transaction.DateOfTrans <= till)
+                 
+                if(transaction.DateOfTrans.Date >= from.Value.Date && transaction.DateOfTrans.Date <= till.Value.Date)
                     transList.Add(transaction);
             }
 
@@ -73,6 +81,13 @@ namespace BankingApp.Models
 
         }
 
+        public override bool Equals(object obj)
+        {
+            BankAccount bankAcc = obj as BankAccount;
+            if (bankAcc == null)
+                return false;
+            return AccountNumber == bankAcc.AccountNumber;
+        }
 
         #endregion
     }
